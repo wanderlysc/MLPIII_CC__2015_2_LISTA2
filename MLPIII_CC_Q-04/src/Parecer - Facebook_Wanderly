@@ -1,0 +1,19 @@
+						Parecer LinkedHashSet e TreeSet
+
+Depois de passar por um teste de performance é possivel afirmar sem dúvida que o LinkedHashSet
+é consideravelmente mais rápido do que o TreeSet pelos seguintes fatores:
+O TreeSet implementa um algoritmo conhecido por red-black tree ou árvore rubro-negra.
+Sua principal característica é que ele é o único Set que implementa a interface SortedSet em 
+vez de Set diretamente, mas de qualquer forma SortedSet implementa Set, assim continuamos tendo
+os mesmo métodos no TreeSet. Pelo fato de ele implementar SortedSet ele possui elementos 
+ordenados automaticamente, ou seja, independente da ordem que você inserir os elementos, eles 
+serão ordenados, mas isso tem um custo, a complexidade para os métodos add, remove e contains 
+são bem maiores, são elas O(log (n)), bem maior que o LinkedHashSet que tem complexidade O(1).
+O LinkedHashSet faz uso do HashTable com linked list, ou seja, os elementos continuam na ordem 
+que são inseridos, e por não implementar a interface SortedSet ele se torna mais rapido. 
+Diante disto vemos a necessidade de alterar todas as implementações que o facebook utiliza
+de TreeSet para LinkedHashSet.
+
+Parecer de: Wanderly, consultor Sênior do Facebook.
+
+
